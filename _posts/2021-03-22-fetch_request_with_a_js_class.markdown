@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Fetch Request with a JS Class"
-date:       2021-03-22 06:08:36 +0000
+date:       2021-03-22 02:08:37 -0400
 permalink:  fetch_request_with_a_js_class
 ---
 
@@ -53,15 +53,15 @@ Alright, success! Now, that was a bit simpler since we only needed to grab the d
 
 > In this case, we will assume you have data of some sort (like from a form) that is ready to send through our `fetch() post` request. 
 
-**1st `method`: our object needs to specify which `fetch()` method, `POST` in this case.
+** 1st `method`: our object needs to specify which `fetch()` method, `POST` in this case.
 
 ```
 {
-      method: 'POST',
+      method: POST,
      }
 ```
 
-**2nd `headers`: we need to add headers for which type of data is being handled.
+** 2nd `headers`: we need to add headers for which type of data is being handled.
 
 ```
 {
@@ -73,7 +73,7 @@ Alright, success! Now, that was a bit simpler since we only needed to grab the d
       }
 ```
 
-**3rd `body`: our data, which should be an object with key-value pairs that will be stringified to JSON.
+** 3rd `body`: our data, which should be an object with key-value pairs that will be stringified to JSON.
 
 ```
 {
@@ -121,7 +121,7 @@ class FetchGameApi{
 	
 Ok looking good but we still need to chain `then()` to `fetch()`. Remember you could also chain `catch()` after `then()` to catch errors. Alrighty then, we are all set. Now we just need to invoke our static methods where needed.
 
-**static methods have to be invoked on its class.
+** static methods have to be invoked on its class.
 
 ```
 FetchGameApi.getGamesFetch()
@@ -131,7 +131,7 @@ FetchGameApi.postGamesFetch(dataObject)
 
 Voila, we are fetching! Sounds kinda like fishing. Pretty cool. Anyways, this should help you get the job done if needed. I hope you could follow along.  If not, there is plenty of great documentation out there for more help. Goodbye and take care. Ok, you know what, I will show you my function where I am getting my form data from but that's it!
 
-**We have an event listener on a form submit, that will pass in the form data to our static method once submitted.
+** We have an event listener on a form submit, that will pass in the form data to our static method once submitted.
 
 ```
 function addNewGameFromForm( form ){
