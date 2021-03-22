@@ -13,13 +13,12 @@ A method you can call on a JavaScript object to return an HTTP response that can
 ```
 class FetchGameApi{
   constructor(){}
-	
  };
 ```
 
 Now, let's create a static method within that class that is accessible in other files. We can access static methods by calling our class and invoking that static method on it.
 
-**We know we want to make the fetch request with this method so remember naming conventions.*
+*We know we want to make the fetch request with this method so remember naming conventions.*
 
 ```
 class FetchGameApi{
@@ -39,7 +38,7 @@ static getGamesFetch(){
   };
 ```
 
-**However, if it is not working you can also chain a `catch()` method to catch any error messages and display them onto your console.*
+*However, if it is not working you can also chain a `catch()` method to catch any error messages and display them onto your console*.
 
 ```
 static getGamesFetch(){
@@ -51,43 +50,43 @@ static getGamesFetch(){
 
 Alright, success! Now, that was a bit simpler since we only needed to grab the data. Let's go ahead and send a `POST` request with`fetch()`. We can add this to our existing class. This should be fairly similar except we need to clarify a few things in a second parameter in `fetch()`. Our second parameter will be an Object consisting of key-value pairs of the method type, the type of data, and of course the data itself(which is also an object of key-value pairs, that will be converted to JSON). 
 
-> In this case, we will assume you have data of some sort (like from a form) that is ready to send through our `fetch() post` request. 
+*In this case, we will assume you have data of some sort (like from a form) that is ready to send through our `fetch() post` request.* 
 
-**1st `method`: our object needs to specify which `fetch()` method, `POST` in this case.*
-
-```
-{
-      method: POST,
-     }
-```
-
-**2nd headers: we need to add headers for which type of data is being handled.*
+*1st `method`: our object needs to specify which `fetch()` method, `POST` in this case.*
 
 ```
 {
-      method: 'POST',
-			headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-        }
-      }
+method: POST,
+}
 ```
 
-**3rd `body`: our data, which should be an object with key-value pairs that will be stringified to JSON.*
+*2nd headers: we need to add headers for which type of data is being handled.*
 
 ```
 {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-			   name: name,
-				 info: info,
-				 stuff: stuff
-		  })
-    }
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json'
+	}
+}
+```
+
+*3rd body: our data, which should be an object with key-value pairs that will be stringified to JSON.*
+
+```
+{
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+		'Accept': 'application/json'
+	},
+	body: JSON.stringify({
+		 name: name,
+		 info: info,
+		 stuff: stuff
+	})
+}
 ```
 
 
@@ -98,13 +97,11 @@ class FetchGameApi{
   constructor(){
   }
 
-
   static getGamesFetch(){
     return fetch("http://localhost:3000/games")
     .then( response => response.json() )
     .catch( error => console.log(error.message) )
   };
-
 
   static postGamesFetch(dataObject){
     fetch("http://localhost:3000/games", {
@@ -121,17 +118,16 @@ class FetchGameApi{
 	
 Ok looking good but we still need to chain `then()` to `fetch()`. Remember you could also chain `catch()` after `then()` to catch errors. Alrighty then, we are all set. Now we just need to invoke our static methods where needed.
 
-**static methods have to be invoked on its class.*
+*static methods have to be invoked on its class.*
 
-
-> FetchGameApi.getGamesFetch()
-
-> FetchGameApi.postGamesFetch(dataObject)
-
+```
+FetchGameApi.getGamesFetch()
+FetchGameA*pi.postGamesFetch(dataObject)
+```
 
 Voila, we are fetching! Sounds kinda like fishing. Pretty cool. Anyways, this should help you get the job done if needed. I hope you could follow along.  If not, there is plenty of great documentation out there for more help. Goodbye and take care. Ok, you know what, I will show you my function where I am getting my form data from but that's it!
 
-**We have an event listener on a form submit, that will pass in the form data to our static method once submitted.*
+*We have an event listener on a form submit, that will pass in the form data to our static method once submitted.*
 
 ```
 function addNewGameFromForm( form ){
