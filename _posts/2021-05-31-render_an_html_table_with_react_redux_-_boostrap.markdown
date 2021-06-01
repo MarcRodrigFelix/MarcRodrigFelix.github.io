@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "**Render an HTML Table with React/Redux - Boostrap**"
-date:       2021-06-01 01:02:05 +0000
+title:      "Render an HTML Table with React/Redux - Boostrap"
+date:       2021-05-31 21:02:06 -0400
 permalink:  render_an_html_table_with_react_redux_-_boostrap
 ---
 
